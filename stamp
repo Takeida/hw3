@@ -1,0 +1,20 @@
+public void stamp(int x, int y, Picture picture) {
+	  int pictureWidth = picture.getWidth();
+	  int pictureHeight = picture.getHeight();
+	  int picturePixelCount = pictureWidth * pictureHeight;
+	  int picX = 0, picY = 0, origX = 0, origY = 0;
+	  
+	  for(int i = 0; i < picturePixelCount; i++) {
+		  picX = i % pictureWidth;
+		  picY = i / pictureHeight;
+		  Pixel picturePixel = new Pixel(picture, picX, picY);
+		  //Pixel picturePixel = picture.getPixel(picX, picY);
+		  Color colorPicturePixel = picturePixel.getColor();
+		  
+		  origX = (i % pictureWidth) + x;
+		  origY = (i / pictureWidth) + y;
+		  Pixel originalPixel = new Pixel(this, origX, origY);
+		  //Pixel originalPixel = this.getPixel(origX, origY);
+		  originalPixel.setColor(colorPicturePixel);		  
+	  }
+  }
