@@ -1,0 +1,133 @@
+public void makeRGBRows()
+  {
+	  int width = getWidth();
+	  int height = getHeight();
+	  int pixelCount = width * height;
+	  int x = 0, y = 0;
+	  for(int i = 0; i < pixelCount; i++) {
+		  x = i % width;
+		  y = i / width;
+		  Pixel aDot = getPixel(x,y);
+	      
+		  if(y < height / 3) {
+			  aDot.setGreen(0);
+			  aDot.setBlue(0);
+		  }else if(y > height * (2.0/3.0)) {
+			  aDot.setRed(0);
+			  aDot.setGreen(0);
+	        
+		  }else{
+			  aDot.setRed(0);
+			  aDot.setBlue(0);
+		  }
+		  /*
+		  if(x == width - 1) {
+			  repaint();
+		  }*/
+	  }
+  }
+  
+  public void makeRGBRegionRows(int leftX, int topY, int regionWidth, int regionHeight) {
+	  int picWidth = getWidth();
+	  int picHeight = getHeight();
+	  if(leftX < 0) {
+		  regionWidth = leftX + regionWidth;
+		  leftX = 0;
+	  }
+	  if(topY < 0) {
+		  regionHeight = topY + regionHeight;
+		  topY = 0;
+	  }
+	  if((leftX + regionWidth) > picWidth) {
+		  regionWidth = picWidth - leftX;
+	  }
+	  if((topY + regionHeight) > picHeight) {
+		  regionHeight = picHeight - topY;
+	  }
+	  
+	  int x = 0, y = 0;
+	  int regionPixelCount = regionWidth * regionHeight;
+	  for(int i = 0; i < regionPixelCount; i++) {
+		  x = (i % regionWidth) + leftX;
+		  y = (i / regionWidth) + topY;
+		  Pixel pixel = getPixel(x, y);
+		  if(y < (regionHeight / 3) + topY) {
+			  pixel.setGreen(0);
+			  pixel.setBlue(0);
+		  }else if(y > (regionHeight * (2.0/3.0)) + topY) {
+			  pixel.setRed(0);
+			  pixel.setGreen(0);
+	        
+		  }else{
+			  pixel.setRed(0);
+			  pixel.setBlue(0);
+		  }
+	  }
+  }
+  
+  public void makeRGBColumns()
+  {
+	  int width = getWidth();
+	  int height = getHeight();
+	  int pixelCount = width * height;
+	  int x = 0, y = 0;
+	  for(int i = 0; i < pixelCount; i++) {
+		  x = i % width;
+		  y = i / width;
+		  Pixel aDot = getPixel(x,y);
+	      
+		  if(x < width / 3) {
+			  aDot.setGreen(0);
+			  aDot.setBlue(0);
+		  }else if(x > width * (2.0/3.0)) {
+			  aDot.setRed(0);
+			  aDot.setGreen(0);
+	        
+		  }else{
+			  aDot.setRed(0);
+			  aDot.setBlue(0);
+		  }
+		  /*
+		  if(x == width - 1) {
+			  repaint();
+		  }*/
+	  }
+  }
+  
+  public void makeRGBRegionColumns(int leftX, int topY, int regionWidth, int regionHeight) {
+	  int picWidth = getWidth();
+	  int picHeight = getHeight();
+	  if(leftX < 0) {
+		  regionWidth = leftX + regionWidth;
+		  leftX = 0;
+	  }
+	  if(topY < 0) {
+		  regionHeight = topY + regionHeight;
+		  topY = 0;
+	  }
+	  if((leftX + regionWidth) > picWidth) {
+		  regionWidth = picWidth - leftX;
+	  }
+	  if((topY + regionHeight) > picHeight) {
+		  regionHeight = picHeight - topY;
+	  }
+	  
+	  int x = 0, y = 0;
+	  int regionPixelCount = regionWidth * regionHeight;
+	  for(int i = 0; i < regionPixelCount; i++) {
+		  x = (i % regionWidth) + leftX;
+		  y = (i / regionWidth) + topY;
+		  Pixel pixel = getPixel(x, y);
+		  if(x < (regionWidth / 3) + leftX) {
+			  pixel.setGreen(0);
+			  pixel.setBlue(0);
+		  }else if(x > (regionWidth * (2.0/3.0)) + leftX) {
+			  pixel.setRed(0);
+			  pixel.setGreen(0);
+	        
+		  }else{
+			  pixel.setRed(0);
+			  pixel.setBlue(0);
+		  }
+	  }
+  }
